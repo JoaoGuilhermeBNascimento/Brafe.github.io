@@ -1,0 +1,254 @@
+body,
+p,
+h1,
+h2,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+
+body {
+  font-family: Georgia, serif;
+  color: #252525;
+}
+* {
+  box-sizing: border-box;
+}
+/* Header*/
+
+.header-informacoes {
+  font-size: 0.875em;
+  background: #d6d3c8;
+  padding: 5px 0;
+  text-align: center;
+}
+
+.header-logo img {
+  display: block;
+  margin: 40px auto;
+}
+
+.header-menu {
+  border-top: 3px solid #d6d3c8;
+  border-bottom: 3px solid #d6d3c8;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.header-menu li {
+  display: inline-block;
+}
+
+.header-menu li a {
+  display: block;
+  padding: 5px 10px 5px 0;
+  text-decoration: none;
+  color: #252525;
+  font-size: 1.125em;
+}
+
+.header-menu li a::before {
+  content: "• ";
+  padding-right: 10px;
+}
+
+.header-menu li:first-child a::before {
+  content: "";
+}
+
+/* Conteúdo */
+
+.container {
+  /*colocamos o max width para que ele centralize quando aumentar mais que 960 e colocamos o margin para centralizar. */
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.container::after,
+.container::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Filtro */
+
+.filtro {
+  background: #e7e4d8;
+  border: 3px solid #d6d3c8;
+  width: 300px;
+  margin: 0 10px;
+  padding: 20px;
+  float: left;
+}
+
+/* Vamos fixar todos os media query aqui */
+/* É importante que o media query venha abaixo do estilo que queremos substituir. */
+@media (min-width: 740px) and (max-width: 980px) {
+  .container {
+    max-width: 720px;
+  }
+  .filtro {
+    /* Fazendo o cálculo é, que é o valor do container 720 dividido por 12 que é o número total de colunas, resultando em 60, nosso filtro contém 4 colunas, então multiplicamos, resultando em 240, porém tiramos o nosso gutter que é o margin left/right que é 20px.*/
+    width: 220px;
+  }
+}
+@media (max-width: 739px) {
+  .container {
+    max-width: 300px;
+  }
+  .filtro {
+    display: none;
+  }
+}
+
+.filtro h2 {
+  font-size: 1.125em;
+  padding: 10px 0;
+}
+
+.filtro ul {
+  border-top: 3px solid #c0beb4;
+  border-bottom: 3px solid #c0beb4;
+  padding: 10px 0;
+}
+
+.filtro li {
+  font-style: italic;
+  font-size: 1.125em;
+  line-height: 2;
+}
+
+.filtro li::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #c0beb4;
+  float: right;
+  margin-top: 5px;
+}
+
+.sabor span {
+  /* Para indentar o paragrafo dentro do item, com esse ident negativo, o texto continua presente, mas não aparece no nosso site. */
+  text-indent: -200px;
+  display: inline-block;
+  background: currentColor;
+  width: 15px;
+  height: 15px;
+
+  /* Border- radius, serve pra criar bordas arredondadas */
+  border-radius: 50%;
+  /* Vertical-align middle, ele alinha isso ao centro do line height */
+  vertical-align: middle;
+}
+
+/*  nesses sabor é o número do item, utilizamos esse metódo para não precisar fazer uso de imagens, economizando kbytes no nosso site. */
+.sabor-3 {
+  /* Setamos uma color e definimos nas nossas sombras como currentColor, que ele vai puxar da cor definida, Lembrndo que devemos definir no nosso span o background como currentColor*/
+  color: #492901;
+  box-shadow: 20px 0 0 0 currentColor, 40px 0 0 0 currentColor;
+}
+
+.sabor-4 {
+  color: #c17139;
+  box-shadow: 20px 0 0 0 currentColor, 40px 0 0 0 currentColor,
+    60px 0 0 0 currentColor;
+}
+
+.sabor-5 {
+  color: #d7a54d;
+  box-shadow: 20px 0 0 0 currentColor, 40px 0 0 0 currentColor,
+    60px 0 0 0 currentColor, 80px 0 0 0 currentColor;
+}
+
+/* PRODUTOS */
+
+.produtos {
+  width: 620px;
+  margin: 0 10px;
+  float: left;
+}
+
+.produtos h1 {
+  font-size: 3em;
+  font-style: italic;
+
+  font-weight: normal;
+}
+
+.produtos li {
+  width: 300px;
+  /* É preciso colocar o float nesse caso, porque ele é um elemento de bloco e fica um embaixo do outro.  */
+  float: left;
+}
+/* Esse comando nth-child(Aqui você coloca o número da figura que deseja aplicar o efeito) serve para buscar a child que queremos, podemos usar o EVEN para escolher todos os elementos pares e o ODD para escolher todos os elementos impares */
+.produtos li:nth-child(odd) {
+  /* selecionamos todos os itens impares e aplicamos um margin-left nele de 20px */
+  margin-left: 20px;
+}
+/*  Colocamos dessa forma porque nosso html está definindo um li e dentro do li uma imagem, então desta forma, estamos falando com a imagem que está dentro do nosso li  */
+.produtos li img {
+  display: block;
+  /* Lembrando que colocamos o max-width em 100% para que elas fiquem responsivas e diminua conforme o tamanho do container */
+  max-width: 100%;
+  border: 3px solid #ffffff;
+  /* box-shadow: direita, baixo,blur(ele começa a borrar a sombra), tamanho  */
+  box-shadow: 0 0 0 3px #252525;
+  /*  Colocamos um margin de 40px para separar os itens, 3px pra cada lado, esse 3px é a sombra, por padrão ela é um elemento invisível, a distância ou o tamanho não influencia nos elementos que estão em volta, mas se dermos um zoom, sem a margem a sombra começa a sair do container. Com essa margem de 3px ela mantém o item perfeitamente alinhado já que a sombra é 3px. se fosse 6 seria 6px */
+  margin: 40px 3px 0 3px;
+}
+
+/*  Colocamos desse forma, porque nosso html está definindo um li e dentro do li os itens que queremos chamar, nesse caso eu quero aplicar o css dentro do span que está dentro do li */
+.produtos li span {
+  background: #e7e4d8;
+  /* O padding expande a área de contato do nosso background */
+  padding: 10px;
+  font-size: 0.875em;
+  font-weight: bold;
+  /* posicionamento dele acima da imagem, sem o position relative ele não consegue pegar o valor de top e não irá mudar nada na imagem */
+  position: relative;
+  top: -15px;
+  margin: 8px;
+}
+
+/*  Colocamos desse forma, porque nosso html está definindo um li e dentro do li os itens que queremos chamar, nesse caso eu quero aplicar o css dentro do h2 que está dentro do li */
+.produtos li h2 {
+  font-size: 0.875em;
+  font-weight: normal;
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+  /* Vamos repetir o cálculo, então pegamos, o tamanho do container: 720px o número de colunas: 12 e dividimos, dando 60 é multiplicamos por 8 que é o número de colunas que nossos produtos ocupam, como resultado temos, 480px - o gutter(20px) = 460px */
+  .produtos {
+    width: 460px;
+  }
+  .produtos li {
+    /* Mesmo cálculo do filtro */
+    width: 220px;
+  }
+}
+@media (max-width: 739px) {
+  .produtos {
+    width: 300px;
+  }
+  .produtos li {
+    /*Dividimos o nosso width por 2, e retiramos 10 que é da margin   */
+    width: 140px;
+  }
+}
+
+/* Footer */
+
+.footer {
+  background: #e7e4d8;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 1.125em;
+  margin-top: 80px;
+}
