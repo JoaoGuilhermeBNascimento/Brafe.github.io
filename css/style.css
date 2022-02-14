@@ -202,6 +202,8 @@ body {
   box-shadow: 0 0 0 3px #252525;
   /*  Colocamos um margin de 40px para separar os itens, 3px pra cada lado, esse 3px é a sombra, por padrão ela é um elemento invisível, a distância ou o tamanho não influencia nos elementos que estão em volta, mas se dermos um zoom, sem a margem a sombra começa a sair do container. Com essa margem de 3px ela mantém o item perfeitamente alinhado já que a sombra é 3px. se fosse 6 seria 6px */
   margin: 40px 3px 0 3px;
+  transition: all 2s ease;
+
 }
 
 /*  Colocamos desse forma, porque nosso html está definindo um li e dentro do li os itens que queremos chamar, nesse caso eu quero aplicar o css dentro do span que está dentro do li */
