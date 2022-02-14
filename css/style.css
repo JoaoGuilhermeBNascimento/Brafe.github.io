@@ -188,7 +188,7 @@ body {
   float: left;
 }
 /* Esse comando nth-child(Aqui você coloca o número da figura que deseja aplicar o efeito) serve para buscar a child que queremos, podemos usar o EVEN para escolher todos os elementos pares e o ODD para escolher todos os elementos impares */
-.produtos li:nth-child(odd) {
+.produtos li:nth-child(even) {
   /* selecionamos todos os itens impares e aplicamos um margin-left nele de 20px */
   margin-left: 20px;
 }
